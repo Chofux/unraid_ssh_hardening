@@ -1,12 +1,12 @@
 #!/bin/bash
-## Estableciendo usuario ssh en archivo sudoers, se comprueba antes si ya está metido en caso de que el array se reinicie
+## Setting up the user in sudoers file, check as well if the user is already in the sudoers file due to script cron to array start
 CHECK_SUDOERS=$(grep -c 'ssh  ALL=(ALL)  ALL' /etc/sudoers)
 if [[ $CHECK_SUDOERS == 0 ]]
 then
     echo 'ssh  ALL=(ALL)  ALL' >> /etc/sudoers
 fi
 
-## Copiar claves SSH de la memoria flash a la ruta de claves del usuario, se comprueba antes si ya está metido en caso de que el array se reinicie
+## Copies the ssh key from flash to user's key folder, check as well if the key is already in the user's key folder
 CHECK_AUTH_KEYS=$(find /home/ssh/.ssh/ -name authorized_keys | wc -l)
 if [[ $CHECK_AUTH_KEYS == 0 ]]
 then
