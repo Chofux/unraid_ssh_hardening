@@ -4,7 +4,7 @@ Works with DocGyver SSH Config Tool Plugin:
 
 *  Disable Permit Root Login and Password Authentication
 *  Use a TCP Random Port
-*  In case that password is still promtted add this to sshd_config:
+*  In case the password is still promtted add this to sshd_config:
    *  UsePAM no
    *  ChallengeResponseAuthentication no
 
